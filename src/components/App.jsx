@@ -16,13 +16,16 @@ function App() {
             gameOver: false,
             winner: ""
         })
+    const [singlePlayer, setSinglePlayer] = useState();
 
 
     return (
         <div className="main-container">
             <nav>
-                <h1> Chamel Tic-Tac-Toe <Grid3x3Icon id="h-icon"/> </h1>
+                <h1> Chamel Tic-Tac-Toe <Grid3x3Icon id="h-icon" /> </h1>
             </nav>
+            {!singlePlayer && <button className="btn" onClick={() => { setSinglePlayer(true) }}>Play Against Computer</button>}
+            {singlePlayer && <button className="btn" onClick={() => { setSinglePlayer(false) }}>Play with Friend</button>}
             <div className="container">
                 <AppContext.Provider value={{
                     turn,
@@ -30,7 +33,8 @@ function App() {
                     board,
                     setBoard,
                     gameOver,
-                    setGameOver
+                    setGameOver,
+                    singlePlayer
                 }}>
                     <Board />
                 </AppContext.Provider>

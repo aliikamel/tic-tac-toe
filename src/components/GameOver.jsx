@@ -3,9 +3,7 @@ import { AppContext } from "./App"
 
 
 function GameOver({ winner }) {
-
-    // const { gameOver } = useContext(AppContext);
-
+    
     return (
         <div className='game-over'>
             <h1>Game Over</h1>
